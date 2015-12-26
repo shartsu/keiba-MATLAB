@@ -1,18 +1,22 @@
 
-directory = '1000';
+directory = '2002';
 d = dir(strcat(directory, '/', '*.csv'));
 
 CellArray = zeros(1, 9);
-NumArray = zeros(1, 9);
-DoubleArray = zeros(1, 6);
+NumArray = zeros(1, 8);
+DoubleArray = zeros(1, 8);
+
+AllData = {''};
 
 for n = 1 : numel(d)
     
     fid = fopen(strcat(directory, '/', d(n).name),'r','n','UTF-8');
     strcat(directory, '/', d(n).name)
     
-    AllData{n} = textscan(fid,'%s %s %s %d %s %*q %d %d %d %f %d %d %s %d %s %s %*s %s %f %*s %s %s %f %s %*q %*s %s %*q',...
+    AllData{n} = textscan(fid,'%s %s %s %d %s %s %d %d %d %s %s %s %s %d %s %s %s %s %s %s %s %s %s %s %s %s %s %s',...
 'Delimiter',',', 'HeaderLines', 0, 'EmptyValue',-Inf);
+
+    %length(AllData{n}{1})
 
     [Cell, Num, Double] = readCell(AllData{n});
 
@@ -29,7 +33,7 @@ for n = 1 : numel(d)
     fclose(fid);
 end
 
-whos CellArray
-whos NumArray
-whos DoubleArray
+%whos CellArray
+%whos NumArray
+%whos DoubleArray
 
