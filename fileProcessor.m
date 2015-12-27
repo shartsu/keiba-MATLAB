@@ -1,5 +1,5 @@
 
-directory = '2002';
+directory = '1000';
 d = dir(strcat(directory, '/', '*.csv'));
 
 CellArray = zeros(1, 9);
