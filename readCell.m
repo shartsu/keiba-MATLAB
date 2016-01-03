@@ -1,4 +1,4 @@
-function [Cell, Double] = readCell(C, HorseName_Input)
+function [Cell, Double] = readCell(C, HorseName_Input, HorseID_Input)
 
 j = 1;
 
@@ -10,6 +10,7 @@ for i = 1: length(C{2})
     if(length(RaceCourse_check) == 3)
         
         HorseName{j, 1} = HorseName_Input;
+        HorseID(j, 1) = str2double(HorseID_Input);
         
         RaceDay{j, 1} = C{1}{i};
         
@@ -120,10 +121,11 @@ if(j >= 2)
         end
     end
 
-    Double = [ProgramDay, RaceNo, HowManyHorses, BlockNo, GateNo,...
-              Odds, Popularity, Order, Recent5RentaiRate, Handicap,...
-              Distance, TimeinSec, Recent5MeterperSecMEAN, TimeGap, AvgBegin,...
-              AvgLast, Last3Farlong, Recent5Last3FarlongMEAN, Heavy, HeavyDiff];
+    Double = [HorseID, ProgramDay, RaceNo, HowManyHorses, BlockNo,...
+              GateNo, Odds, Popularity, Order, Recent5RentaiRate,...
+              Handicap, Distance, TimeinSec, Recent5MeterperSecMEAN, TimeGap,...
+              AvgBegin, AvgLast, Last3Farlong, Recent5Last3FarlongMEAN, Heavy,...
+              HeavyDiff];
           
 else
     Cell = {};

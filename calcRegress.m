@@ -1,13 +1,13 @@
 function [regressRESULT] = calcRegress(TrainingDoubleArray, SelectedIndex, InputDoubleArray)
 
 %y = TimeinSec
-y = TrainingDoubleArray(SelectedIndex, 12);
+y = TrainingDoubleArray(SelectedIndex, 13);
 one = ones(length(SelectedIndex), 1);
 %X = GateNo, Recent5RentaiRate, Handicap
 %    Recent5MeterperSecMEAN, Recent5Last3FarlongMEAN, HeavyDiff 
-X = [one, TrainingDoubleArray(SelectedIndex, 5), TrainingDoubleArray(SelectedIndex, 9),...
-    TrainingDoubleArray(SelectedIndex, 10), TrainingDoubleArray(SelectedIndex, 13),...
-    TrainingDoubleArray(SelectedIndex, 18), TrainingDoubleArray(SelectedIndex, 20)];
+X = [one, TrainingDoubleArray(SelectedIndex, 6), TrainingDoubleArray(SelectedIndex, 10),...
+    TrainingDoubleArray(SelectedIndex, 11), TrainingDoubleArray(SelectedIndex, 14),...
+    TrainingDoubleArray(SelectedIndex, 19), TrainingDoubleArray(SelectedIndex, 21)];
 
 [b,bint,r,rint,stats] = regress(y, X);
 b
