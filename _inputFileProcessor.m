@@ -18,7 +18,7 @@ for n = 1 : numel(d)
     [TmpCell, TmpDouble] = readCell(AllData{n}, HorseName{1, 2});
     
     InputDoubleArray(n,:) = [n, TmpDouble(1,9), newHandicap(n,1), ...
-        TmpDouble(1,13) TmpDouble(1,18), newHeavydiff(n, 1)];
+        TmpDouble(1,13) TmpDouble(1,18), newHeavydiff(n, 1), ];
    
     fclose(fid);
 end

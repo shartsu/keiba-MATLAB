@@ -95,6 +95,14 @@ if(j >= 2)
         end
     end
     
+    %Calculate mean recent 5 races distances for Dedicated distance 
+    Recent5DistanceMEAN = NaN(length(Distance), 1);
+    if (length(Distance) >= 5)
+        for k = 1: (length(Distance)-5)
+            Recent5DistanceMEAN(k, 1) = mean(Distance(k:(k+4),1), 'omitnan');
+        end
+    end
+    
     %Calculate recent 5 races mean last 3 farlong 
     Recent5Last3FarlongMEAN = NaN(length(Last3Farlong), 1);
     if (length(Last3Farlong) >= 5)
@@ -120,12 +128,12 @@ if(j >= 2)
             Recent5RentaiRate(k, 1) = mean(Rentai(k:(k+4),1));
         end
     end
-
+    
     Double = [HorseID, ProgramDay, RaceNo, HowManyHorses, BlockNo,...
               GateNo, Odds, Popularity, Order, Recent5RentaiRate,...
               Handicap, Distance, TimeinSec, Recent5MeterperSecMEAN, TimeGap,...
               AvgBegin, AvgLast, Last3Farlong, Recent5Last3FarlongMEAN, Heavy,...
-              HeavyDiff];
+              HeavyDiff, Recent5DistanceMEAN];
           
 else
     Cell = {};

@@ -2,7 +2,7 @@ function [InputDoubleArray] = inputDoubleArrayCreator(inputTrainingDoubleArray, 
 
 %atndHorseList = [horseID, newHandicap, newHeavydiff]
 for i = 1 : length(atndHorseList)
-    
+        
     atndHorseIndex = find(inputTrainingDoubleArray == atndHorseList(i, 1));
     minIndex = min(atndHorseIndex);
     
@@ -11,6 +11,7 @@ for i = 1 : length(atndHorseList)
     
     InputDoubleArray(i,:) = [i, inputTrainingDoubleArray(minIndex,10), ...
         newHandicap, inputTrainingDoubleArray(minIndex,14),...
-        inputTrainingDoubleArray(minIndex,19), newHeavydiff];
+        inputTrainingDoubleArray(minIndex,19), newHeavydiff,...
+        inputTrainingDoubleArray(minIndex,22)];
     
 end

@@ -12,7 +12,7 @@ for n = 1 : numel(d)
     
     HorseName = strsplit(d(n).name, {'\d'},'DelimiterType','RegularExpression');
     HorseID = strsplit(d(n).name, {'\D'},'DelimiterType','RegularExpression');
-    strcat(directory, '/', d(n).name)
+    strcat(directory, '/', d(n).name);
     
     AllData{n} = textscan(fid,'%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s',...
 'Delimiter',',', 'HeaderLines', 0);
